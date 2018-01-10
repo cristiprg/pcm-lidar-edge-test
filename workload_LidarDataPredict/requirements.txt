@@ -1,0 +1,6 @@
+Flask
+flask-restful
+pandas
+sklearn
+numpy
+scipy

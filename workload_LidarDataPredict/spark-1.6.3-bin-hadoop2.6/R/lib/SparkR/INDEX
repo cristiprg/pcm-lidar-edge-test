@@ -1,0 +1,246 @@
+$                       Select
+%in%                    Match a column with given values.
+Column-class            S4 class that represents a DataFrame column
+DataFrame-class         S4 class that represents a DataFrame
+GroupedData-class       S4 class that represents a GroupedData
+PipelineModel-class     S4 class that represents a PipelineModel
+[[                      Subset
+abs                     abs
+acos                    acos
+add_months              add_months
+agg                     Summarize data across columns
+agg                     summarize
+alias                   alias
+approxCountDistinct     approxCountDistinct
+arrange                 Arrange
+array_contains          array_contains
+as.data.frame,DataFrame-method
+                        Download data from a DataFrame into a
+                        data.frame
+ascii                   ascii
+asin                    asin
+atan                    atan
+atan2                   atan2
+attach,DataFrame-method
+                        Attach DataFrame to R search path
+avg                     avg
+base64                  base64
+between                 between
+bin                     bin
+bitwiseNOT              bitwiseNOT
+cache                   Cache
+cacheTable              Cache Table
+cancelJobGroup          Cancel active jobs for the specified group
+cast                    Casts the column to a different data type.
+cbrt                    cbrt
+ceil                    ceil
+clearCache              Clear Cache
+clearJobGroup           Clear current job group ID and its description
+col                     Though scala functions has "col" function, we
+                        don't expose it in SparkR because we don't want
+                        to conflict with the "col" function in the R
+                        base package and we also have "column" function
+                        exported which is an alias of "col".
+collect                 Collects all the elements of a Spark DataFrame
+                        and coerces them into an R data.frame.
+coltypes                coltypes
+columns                 Column names
+concat                  concat
+concat_ws               concat_ws
+conv                    conv
+corr                    corr
+cos                     cos
+cosh                    cosh
+count                   count
+count                   nrow
+countDistinct           Count Distinct
+cov                     crosstab
+crc32                   crc32
+createDataFrame         Create a DataFrame
+createExternalTable     Create an external table
+cume_dist               cume_dist
+date_add                date_add
+date_format             date_format
+date_sub                date_sub
+datediff                datediff
+dayofmonth              dayofmonth
+dayofyear               dayofyear
+decode                  decode
+dense_rank              dense_rank
+describe                summary
+dim                     Returns the dimentions (number of rows and
+                        columns) of a DataFrame
+distinct                Distinct
+dropTempTable           Drop Temporary Table
+dropna                  dropna
+dtypes                  DataTypes
+encode                  encode
+except                  except
+exp                     exp
+explain                 Explain
+explode                 explode
+expm1                   expm1
+expr                    expr
+factorial               factorial
+filter                  Filter
+first                   Return the first row of a DataFrame
+floor                   floor
+format_number           format_number
+format_string           format_string
+from_unixtime           from_unixtime
+from_utc_timestamp      from_utc_timestamp
+generateAliasesForIntersectedCols
+                        Creates a list of columns by replacing the
+                        intersected ones with aliases. The name of the
+                        alias column is formed by concatanating the
+                        original column name and a suffix.
+glm                     Fits a generalized linear model
+greatest                greatest
+groupBy                 GroupBy
+hashCode                Compute the hashCode of an object
+head                    Head
+hex                     hex
+hour                    hour
+hypot                   hypot
+ifelse                  ifelse
+infer_type              infer the SQL type
+initcap                 initcap
+insertInto              insertInto
+instr                   instr
+intersect               Intersect
+is.nan                  is.nan
+isLocal                 isLocal
+join                    Join
+kurtosis                kurtosis
+lag                     lag
+last                    last
+last_day                last_day
+lead                    lead
+least                   least
+length                  length
+levenshtein             levenshtein
+limit                   Limit
+lit                     lit
+locate                  locate
+log                     log
+log10                   log10
+log1p                   log1p
+log2                    log2
+lower                   lower
+lpad                    lpad
+ltrim                   ltrim
+max                     max
+md5                     md5
+mean                    mean
+merge                   Merges two data frames
+min                     min
+minute                  minute
+month                   month
+months_between          months_between
+mutate                  Mutate
+nanvl                   nanvl
+ncol                    Returns the number of columns in a DataFrame
+negate                  negate
+next_day                next_day
+ntile                   ntile
+otherwise               otherwise
+percent_rank            percent_rank
+persist                 Persist
+pmod                    pmod
+predict                 Make predictions from a model
+print.jobj              Print a JVM object reference.
+print.structField       Print a Spark StructField.
+print.structType        Print a Spark StructType.
+printSchema             Print Schema of a DataFrame
+quarter                 quarter
+rand                    rand
+randn                   randn
+rank                    rank
+read.df                 Load an DataFrame
+read.json               Create a DataFrame from a JSON file.
+read.parquet            Create a DataFrame from a Parquet file.
+read.text               Create a DataFrame from a text file.
+regexp_extract          regexp_extract
+regexp_replace          regexp_replace
+registerTempTable       Register Temporary Table
+repartition             Repartition
+reverse                 reverse
+rint                    rint
+round                   round
+row_number              row_number
+rpad                    rpad
+rtrim                   rtrim
+sample                  Sample
+saveAsTable             saveAsTable
+schema                  Get schema object
+sd                      sd
+second                  second
+selectExpr              SelectExpr
+setJobGroup             Assigns a group ID to all the jobs started by
+                        this thread until the group ID is set to a
+                        different value or cleared.
+sha1                    sha1
+sha2                    sha2
+shiftLeft               shiftLeft
+shiftRight              shiftRight
+shiftRightUnsigned      shiftRightUnsigned
+show                    show
+showDF                  showDF
+signum                  signum
+sin                     sin
+sinh                    sinh
+size                    size
+skewness                skewness
+sort_array              sort_array
+soundex                 soundex
+sparkR.init             Initialize a new Spark Context.
+sparkR.stop             Stop the Spark context.
+sparkRHive.init         Initialize a new HiveContext.
+sparkRSQL.init          Initialize a new SQLContext.
+sql                     SQL Query
+sqrt                    sqrt
+stddev_pop              stddev_pop
+stddev_samp             stddev_samp
+str                     Compactly display the structure of a dataset
+struct                  struct
+structField             structField
+structType              structType
+substr                  substr
+substring_index         substring_index
+sum                     sum
+sumDistinct             sumDistinct
+table                   Create a DataFrame from a SparkSQL Table
+tableNames              Table Names
+tables                  Tables
+take                    Take the first NUM rows of a DataFrame and
+                        return a the results as a data.frame
+tan                     tan
+tanh                    tanh
+toDegrees               toDegrees
+toRadians               toRadians
+to_date                 to_date
+to_utc_timestamp        to_utc_timestamp
+translate               translate
+trim                    trim
+unbase64                unbase64
+uncacheTable            Uncache Table
+unhex                   unhex
+unionAll                rbind
+unix_timestamp          unix_timestamp
+unpersist               Unpersist
+upper                   upper
+var                     var
+var_pop                 var_pop
+var_samp                var_samp
+weekofyear              weekofyear
+when                    when
+with,DataFrame-method   Evaluate a R expression in an environment
+                        constructed from a DataFrame
+withColumn              WithColumn
+withColumnRenamed       rename
+write.df                Save the contents of the DataFrame to a data
+                        source
+write.json              write.json
+write.parquet           write.parquet
+write.text              write.text
+year                    year
