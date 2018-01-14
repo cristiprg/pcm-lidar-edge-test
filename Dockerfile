@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM openjdk:8-jre
 MAINTAINER Anuyog Chauhan "anuyog.chauhan@aricent.com"
 
 RUN apt-get update -y
