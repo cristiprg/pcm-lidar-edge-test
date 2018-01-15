@@ -31,7 +31,7 @@ kNNpicklePath="."
 #savedModelPath="s3://spark-pointfeatures/savedModels/bildstein1.irfmodel"
 savedModelPath="./bildstein1.irfmodel"
 doEvaluation=0
-doTraining=1
+doTraining=true
 
 # Make sure to avoid "hadoop file/folder exists error"
 # Remove existing parquet files

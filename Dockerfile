@@ -5,6 +5,14 @@ MAINTAINER Anuyog Chauhan "anuyog.chauhan@aricent.com"
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
 
+# Download Spark
+# TODO: verify integrity of archive, md5sum or similar
+RUN wget -nv http://mirror.netcologne.de/apache.org/spark/spark-1.6.3/spark-1.6.3-bin-hadoop2.6.tgz && \
+	mkdir -p /app && \
+	tar xzf ./spark-1.6.3-bin-hadoop2.6.tgz -C /app && \
+	rm ./spark-1.6.3-bin-hadoop2.6.tgz
+
+
 # Install Java 8
 # https://newfivefour.com/docker-java8-auto-install.html
 #RUN apt-get -y install software-properties-common && \
