@@ -20,7 +20,7 @@ SPARK_HOME='/app/spark-1.6.3-bin-hadoop2.6/bin'
 #trainingLaserPointsFiles="s3://spark-pointfeatures/Bildstein1/2.txt,s3://spark-pointfeatures/Bildstein1/3.txt"
 trainingLaserPointsFiles="./Enschede_1_test_space.csv"
 #predictLaserPointsFiles="s3://spark-pointfeatures/Bildstein1/1.txt,s3://spark-pointfeatures/Bildstein1/3.txt" # COMMA separated list
-predictLaserPointsFiles="./Enschede_1_test_space.csv"
+predictLaserPointsFiles="./predict_this.csv"
 batchSize=200000
 #queryKNNScriptPath="/home/hadoop/queryKNN.py"
 queryKNNScriptPath="./queryKNN.py"
@@ -31,7 +31,7 @@ kNNpicklePath="."
 #savedModelPath="s3://spark-pointfeatures/savedModels/bildstein1.irfmodel"
 savedModelPath="./bildstein1.irfmodel"
 doEvaluation=0
-doTraining=true
+doTraining=false
 
 # Make sure to avoid "hadoop file/folder exists error"
 # Remove existing parquet files

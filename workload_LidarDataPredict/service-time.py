@@ -20,6 +20,16 @@ class TodoSimple(Resource):
         
         return { 'time' : time.strftime("%b %d %Y %H:%M:%S") }
 
+    def post(self):
+        data = request.data
+        with open("predict_this.csv", "w") as csv_file:
+            csv_file.write(data)
+        ret_val = call(["./submit_job_EDGE.sh"])
+        if ret_val != 0:
+            return { 'data' : "Spark ret_val = " + ret_val }
+        with open("predict_this.csv-classified/part-00000", "r") as predicted_file:
+            return { 'data' : predicted_file.read() }
+
 api.add_resource(TodoSimple, '/time')
 
 
