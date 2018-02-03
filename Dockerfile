@@ -1,9 +1,12 @@
 #FROM ubuntu:latest
 FROM openjdk:8-jre
-MAINTAINER Anuyog Chauhan "anuyog.chauhan@aricent.com"
+#FROM singularities/spark:1.6 - consider this as base image in the future
+#MAINTAINER Anuyog Chauhan "anuyog.chauhan@aricent.com"
 
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
+
+RUN apt-get install -y procps netcat net-tools less
 
 # Download Spark
 # TODO: verify integrity of archive, md5sum or similar
@@ -24,7 +27,15 @@ RUN wget -nv http://mirror.netcologne.de/apache.org/spark/spark-1.6.3/spark-1.6.
 
 
 COPY ./workload_LidarDataPredict /app
+RUN mv /app/log4j.properties /app/spark-1.6.3-bin-hadoop2.6/conf
 WORKDIR /app
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["service-time.py"]
+
+RUN chmod +x /app/start.sh
+ENTRYPOINT ["/app/start.sh"]
+#CMD ["+x /app/start.sh"]
+
+# ENTRYPOINT ["python"]
+# CMD ["service-time.py"]
+
+#ENTRYPOINT ["/app/spark-1.6.3-bin-hadoop2.6/bin/run-example", "streaming.NetworkWordCount", "localhost", "9999"]
