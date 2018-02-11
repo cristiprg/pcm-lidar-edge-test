@@ -30,7 +30,7 @@ class TodoSimple(Resource):
         global nr_crt
         # Create new file with an increasing counter in the end of its name
         nr_crt += 1
-        file_name = SPARK_DATA_DIR + "/" + str(nr_crt) + "_predict_this"
+        file_name = SPARK_DATA_DIR + "/" + str(nr_crt) + "_predict_this.txt"
 
 
         print str(datetime.now()) + ": Received data "
@@ -38,22 +38,33 @@ class TodoSimple(Resource):
         with open(file_name, "w") as csv_file:
             csv_file.write(data)
 
+        # Run the external C++ program
+        # PCM_Sioux-2018/DipperPointMapper/DipperPointMapper -par ./MLmodels-3/Hexagon1-all-features.xml -i ./MLmodels-3/1-3.laser -app -classified
+        ret_val = os.system("./DipperPointMapper -par ./MLmodels-3/Hexagon1-all-features.xml -app -classified -i " + file_name)
+
+        if ret_val != 0:
+            return {'data' : 'ERROR, ret_val = ' + str(ret_val)}
+
+
         # Wait until file _SUCCESS is createad and then "cat" the content of part-00000 to the returned json.
-        success_file_name = file_name + "-classified/_SUCCESS"
-        predicted_file_name = file_name + "-classified/part-00000"
-        print str(datetime.now()) + ": Waiting now for Spark Streaming to finish ..."
+        # success_file_name = file_name + "-classified/_SUCCESS"
+        # predicted_file_name = file_name + "-classified/part-00000"
+        # print str(datetime.now()) + ": Waiting now for Spark Streaming to finish ..."
 
         # TODO: fail after certain number of tries?
-        while not os.path.exists(success_file_name):
-            time.sleep(0.05)
+        # while not os.path.exists(success_file_name):
+            # time.sleep(0.05)
 
 
         #ret_val = call(["./submit_job_EDGE.sh"])  -- do nothing here, just let Spark Streaming monitor the directory
-        print str(datetime.now()) + ": Finished, reading file and sending resposne ..."
+        # print str(datetime.now()) + ": Finished, reading file and sending resposne ..."
 
         #  TODO: return data
         # if ret_val != 0:
         #     return { 'data' : "Spark ret_val = " + ret_val }
+
+
+        predicted_file_name = os.path.splitext(file_name)[0] + "-classified.txt"
         with open(predicted_file_name, "r") as predicted_file:
              return { 'data' : predicted_file.read() }
         return { 'data': ''}
