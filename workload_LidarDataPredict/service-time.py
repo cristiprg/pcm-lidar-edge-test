@@ -27,6 +27,10 @@ class TodoSimple(Resource):
         return { 'time' : time.strftime("%b %d %Y %H:%M:%S") }
 
     def post(self):
+        data = request.data
+        return {'data' : data}
+
+    def post_2(self):
         global nr_crt
         # Create new file with an increasing counter in the end of its name
         nr_crt += 1
